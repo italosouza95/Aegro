@@ -1,0 +1,36 @@
+{
+    "dashboard": {
+        "fazendas": [
+            {
+                "producaoTotalFazenda": "Valor numérico, soma da produção de todas as colheitas de todos os talhões ",
+                "nome": "fazenda do italo",
+                "id": 1,
+                "proprietario": "italo",
+                "talhoes": [
+                    {
+                        "talhaoId": "id do talhao",
+                        "producaoTotalTalhao": "numerico: soma de todas as colheitas desse talhao",
+                        "colheitas": {
+                            "colheitas": "array com todos os objetos das colheitas feitas nesse talhao"
+                        }
+                    }
+                ]
+            }
+        ],
+        "producaoTotalTodasAsFazendas": "valor numerico, soma da producao de todos os talhoes de todas as fazendas",
+        "podioFazendas": [
+            //aqui sao as 3 melhoras fazendas
+            {
+                "producaoTotal": null,
+                "fazendaId": null,
+                "fazendaNome": null,
+                "posicao": null,
+                "melhorTalhao": {
+                    "nomeTalhao": null,
+                    "idTalhao": null,
+                    "producaoTotal": null
+                }
+            }
+        ]
+    }
+}

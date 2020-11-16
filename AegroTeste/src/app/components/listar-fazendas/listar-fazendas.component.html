@@ -1,0 +1,187 @@
+<!-- <mat-card>
+
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="proprietario">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.proprietario}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tipoMedidaArea">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipoMedidaArea}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.cidade}} </td>
+      </ng-container>
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef> Telefone </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="observacoes">
+        <th mat-header-cell *matHeaderCellDef> Observacoes </th>
+        <td mat-cell *matCellDef="let element"> {{element.observacoes}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Editar/Excluir </th>
+        <td mat-cell *matCellDef="let fazenda">
+          <mat-icon color="primary" (click)="editarFazenda(fazenda)">edit</mat-icon>
+          <mat-icon color="warn" (click)="excluirFazenda(fazenda)">delete</mat-icon>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary"> </button>
+  </mat-card-actions>
+</mat-card>
+ -->
+
+
+
+<div style="max-width:1280px;padding:20px;margin: 18px auto;">
+  <!-- Master Toggle Button -->
+  <mat-card>
+
+    <mat-card-header>
+      <h2>Gerenciar Fazendas</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="proprietario">
+          <th mat-header-cell *matHeaderCellDef> Proprietário </th>
+          <td mat-cell *matCellDef="let element"> {{element.proprietario}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tipoMedidaArea">
+          <th mat-header-cell *matHeaderCellDef> Medida de Área </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipoMedidaArea}} </td>
+        </ng-container>
+        <ng-container matColumnDef="cidade">
+          <th mat-header-cell *matHeaderCellDef> Cidade </th>
+          <td mat-cell *matCellDef="let element"> {{element.cidade}} </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefone">
+          <th mat-header-cell *matHeaderCellDef> Telefone </th>
+          <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> E-mail </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="observacoes">
+          <th mat-header-cell *matHeaderCellDef> Observacoes </th>
+          <td mat-cell *matCellDef="let element"> {{element.observacoes}} </td>
+        </ng-container> -->
+
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Editar/Excluir </th>
+          <td mat-cell *matCellDef="let fazenda">
+            <mat-icon color="primary" matTooltip="Editar fazenda {{fazenda.nome}}" (click)="editarFazenda(fazenda)">edit
+            </mat-icon>
+            <mat-icon color="warn" matTooltip="Excluir fazenda {{fazenda.nome}}" (click)="excluirFazenda(fazenda)">
+              delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- 
+        <ng-container matColumnDef="detalhes">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <a mat-button href="javascript:void()" (click)="element.isExpanded = !element.isExpanded">View
+              Subjects</a>
+          </td>
+        </ng-container> -->
+        <ng-container matColumnDef="detalhes">
+          <th mat-header-cell *matHeaderCellDef> Detalhes </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon color="primary" (click)="element.isExpanded = !element.isExpanded" matTooltip="Editar">
+              visibility
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Template for details row -->
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+
+            <div class="row student-element-detail" [@detailExpand]="element.isExpanded ? 'expanded' : 'collapsed'">
+              <!-- <mat-list>
+                <div mat-subheader>Subjects of eai</div>
+                <mat-list-item  >
+                  <div mat-line>oi</div>
+                  <div mat-line> olá</div>
+                </mat-list-item>
+              </mat-list> -->
+              <p>{{element.observacoes}}</p>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="student-element-row"
+          [class.student-expanded-row]="element.isExpanded"></tr>
+
+        <!-- Extra row to show detail content column -->
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="student-detail-row"></tr>
+
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="!isTableExpanded" mat-raised-button href="javascript:void(0)" (click)="toggleTableRows()"
+        color="accent">Detalhar tudo</a>
+
+      <a *ngIf="isTableExpanded" mat-raised-button href="javascript:void(0)" (click)="toggleTableRows()"
+        color="accent">Ocultar tudo</a>
+      <button mat-raised-button color="primary" (click)="openDialogCadastroFazenda()">Cadastrar fazenda</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

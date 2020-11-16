@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 offset-md-2 col-md-8 offset-lg-2 col-lg-8">
+        <mat-card>
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab *ngFor="let fazenda of fazendas" [label]="fazenda.nome">
+                    <mat-card-header>
+                        <div fxFlex="row">
+                            <h3 *ngIf="fazenda.talhoes">Talhões Cadastrados ({{fazenda.talhoes.length}})</h3>
+                            <h3 *ngIf="!fazenda.talhoes">Talhões Cadastrados (0)</h3>
+                        </div>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mt-3"
+                                *ngFor=" let talhao of fazenda.talhoes">
+                                <mat-card style="width: 100%;">
+                                    <mat-card-header>
+                                        <mat-icon style="font-size: 85px;align-self: center; ">
+                                            crop_original
+                                        </mat-icon>
+                                    </mat-card-header>
+                                    <mar-card-content>
+
+                                    </mar-card-content>
+                                    <mat-card-actions>
+                                        <div class="row mt-5">
+                                            <div class="col-xs-12 col-sm-12 col-sm-12 col-lg-12 mt-2">
+                                                <div class="row">
+                                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                        {{talhao.nome}}
+                                                        {{talhao.fazenda.tipoMedidaArea | tipoMedidaArea}}
+                                                    </div>
+                                                    <div class=" col-xs-4  col-sm-4 col-md-4 col-lg-4 ">
+                                                        <button mat-button matTooltip="Opções"
+                                                            matTooltipPosition="below" [matMenuTriggerFor]="menu">
+                                                            <mat-icon mat-button>more_vert</mat-icon>
+                                                            <mat-menu #menu="matMenu">
+                                                                <button mat-menu-item
+                                                                    (click)="cadastrarOuEditarTalhaoDialog(talhao.fazenda, true)">Editar</button>
+                                                                <button mat-menu-item
+                                                                    (click)="excluirTalhao(talhao)">Excluir</button>
+                                                            </mat-menu>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ml-3 mt-3">
+                                    <mat-card style="width: 140%;">
+                                        <mat-card-header>
+                                            <mat-icon
+                                                style="font-size: 90px;margin-left: 13%;text-align: center; color: rgba(0, 95, 97, 0.85);">
+                                                add_circle_outline
+                                            </mat-icon>
+                                        </mat-card-header>
+                                        <mat-card-actions>
+                                            <div style="margin-top: 8.4vh;text-align: center;justify-content: center;">
+                                                <button mat-raised-button color="accent" fxFlex="center center"
+                                                    style="max-width: 80%;"
+                                                    (click)="cadastrarOuEditarTalhaoDialog(fazenda, false)">Cadastrar
+                                                    Talhão</button>
+                                            </div>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <ng-container *ngIf="!fazenda.talhoes">
+                            <button mat-raised-button color="accent" fxFlex="center" style="max-width: 40%;"
+                                fxFlexOffset="20" (click)="cadastrarOuEditarTalhaoDialog(fazenda, false)">Cadastrar
+                                Talhão</button>
+                        </ng-container>
+                    </mat-card-actions>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-card>
+    </div>
+</div>

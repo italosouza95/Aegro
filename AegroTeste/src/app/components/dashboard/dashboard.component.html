@@ -1,0 +1,62 @@
+<div class="visible-xs visible-sm hidden-md hidden-lg">
+  <app-publicidade-app></app-publicidade-app>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <mat-card>
+      <mat-card>
+        <mat-card-title>
+          <h2 class="text-center">Produção total: {{dashboard.dashboard.producaoTotalTodasAsFazendas}}
+            <img *ngIf="visibilityChart" class="img img-responsive text-right" (click)="changeVisibilityChart()"
+              style="cursor: pointer;" src="../../../assets/png/clipboard.png" width="25">
+            <img *ngIf="!visibilityChart" class="img img-responsive text-right" (click)="changeVisibilityChart()"
+              style="cursor: pointer;" src="../../../assets/png/diagram.png" width="25">
+          </h2>
+        </mat-card-title>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 offset-md-3 col-md-6 offset-lg-3 col-lg-6">
+            <app-pie *ngIf="visibilityChart" [pieChartLabels]="labelsGraficoPieFazenda"
+              [pieChartData]="dadosGraficoPieFazenda"></app-pie>
+            <table *ngIf="!visibilityChart" class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nome Fazenda</th>
+                  <th scope="col">Produção</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let fazenda of dashboard.dashboard.fazendas">
+                  <td>{{fazenda.nome}}</td>
+                  <td>{{fazenda.producaoTotalFazenda}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>
+          <h2 class="text-center">Pódio</h2>
+        </mat-card-title>
+        <div class="row mt-4">
+          <div class="col-md-4" *ngFor="let fazenda of dashboard.dashboard.podioFazendas">
+            <mat-card>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <img [src]="fazenda.icon" class="img img-responsive" width="60">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center mt-4">
+                  <h4 class="text-center">Fazenda: {{fazenda.fazendaNome}}</h4>
+                  <h4 class="text-center">Produção Total: {{fazenda.producaoTotal}}</h4>
+                  <h4 class="text-center">Melhor Talhão: {{fazenda.melhorTalhao.nomeTalhao}}, Produção:
+                    {{fazenda.melhorTalhao.producaoTotal}} </h4>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card>
+    </mat-card>
+  </div>
+</div>

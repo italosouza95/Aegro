@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>
+            <img src="../../../../assets/svg/logo/data_image_svg+xml;….svg">
+        </span>
+        <span class="menu-spacer"></span>
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="''" (click)="sidenav.toggle()">Dashboard</a>
+            <a mat-list-item [routerLink]="'/listar-fazendas'" (click)="sidenav.toggle()">Gerenciar Fazendas </a>
+            <a mat-list-item [routerLink]="'/listar-talhoes'" (click)="sidenav.toggle()"> Gerenciar Talhões </a>
+            <a mat-list-item [routerLink]="'/registro-producao'" (click)="sidenav.toggle()"> Registrar Produção </a>
+
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 100vh;">
+
+            <br>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>
